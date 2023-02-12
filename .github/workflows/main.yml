@@ -18,7 +18,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Hello World action steps
         id: hello
-        uses: payalsonani/my-javascript-action@v1
+        uses: payalsonani/my-javascript-action@v3
         with:
          who-to-greet: "Payal"
       # Use the output from the 'hello' step
