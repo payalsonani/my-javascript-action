@@ -7,13 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello 
     steps:
-    - name: Hello World action steps
-      id: hello
-      uses: payalsonani/my-javascript-action@v1
-      with:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Hello World action steps
+        id: hello
+        uses: payalsonani/my-javascript-action@v1
+        with:
          who-to-greet: "Payal"
-    # Use the output from the 'hello' step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"  
+      # Use the output from the 'hello' step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"  
 
   
