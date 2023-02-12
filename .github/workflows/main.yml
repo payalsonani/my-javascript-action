@@ -15,7 +15,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm run build --if-present
-    steps: 
+      
       - name: Hello World action steps
         id: hello
         uses: payalsonani/my-javascript-action@v1
