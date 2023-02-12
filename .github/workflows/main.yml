@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
@@ -18,7 +18,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Hello World action steps
         id: hello
-        uses: payalsonani/my-javascript-action@v3
+        uses: payalsonani/my-javascript-action@v1
         with:
          who-to-greet: "Payal"
       # Use the output from the 'hello' step
